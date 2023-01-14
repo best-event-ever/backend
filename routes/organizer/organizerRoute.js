@@ -4,7 +4,7 @@ const router = express.Router();
 
 import {postOneEvent}
   //getAllEvents, getOneEvent, deleteOneEvent, updateOneEvent} 
-  from '../controller/eventController.js';
+  from '../../controller/eventController.js';
 
 router
   .route('/events')
