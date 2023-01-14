@@ -1,20 +1,20 @@
 import express from "express";
 
-const router = express.Router();
+const organizerRouter = express.Router();
 
-import {postOneEvent, getAllEvents, getOneEvent, deleteOneEvent, updateOneEvent} from '../../controller/organizer/eventController.js';
+import {postOneEvent, getAllEvents, getOneEvent, deleteOneEvent, updateOneEvent} from '../../controller/organizer/organizerController.js';
 
-router
+organizerRouter
   .route('/events')
     .post(postOneEvent)
     .get(getAllEvents);
     
     // .
     // ;
-router
+organizerRouter
   .route('/events/:id')
     .get(getOneEvent)
     .delete(deleteOneEvent)
     .patch(updateOneEvent);
 
-export default router;
+export default organizerRouter;
