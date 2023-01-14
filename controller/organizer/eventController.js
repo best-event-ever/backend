@@ -35,3 +35,13 @@ export const deleteOneEvent = async (req, res) => {
     console.log(error);
   }
 };
+
+export const updateOneEvent = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const updateOneEvent = await Event.findByIdAndUpdate(id, req.body, {new: true}).select('-__v');
+    res.status(200).json(updateOneEvent);
+  } catch (error) {
+    console.log(error);
+  }
+};
