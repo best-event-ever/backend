@@ -26,3 +26,12 @@ export const getOneEvent = async (req, res) => {
     console.log(error);
   }
 };
+
+export const deleteOneEvent = async (req, res) => {
+  try {
+    const deleteOneEvent = await Event.deleteOne(req.body);
+    res.status(200).json(deleteOneEvent);
+  } catch (error) {
+    console.log(error);
+  }
+};
