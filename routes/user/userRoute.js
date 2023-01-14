@@ -8,8 +8,6 @@ router
   .route('/events')
     .get(getAllEvents);
     
-    // .
-    // ;
 router
   .route('/events/:id')
     .get(getOneEvent);

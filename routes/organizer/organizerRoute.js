@@ -2,7 +2,7 @@ import express from "express";
 
 const organizerRouter = express.Router();
 
-import {postOneEvent, getAllEvents, getOneEvent, deleteOneEvent, updateOneEvent} from '../../controller/organizer/organizerController.js';
+import {postOneEvent, getAllEvents, getOneEventById, deleteOneEventById, updateOneEventById} from '../../controller/organizer/organizerController.js';
 
 organizerRouter
   .route('/events')
@@ -13,8 +13,8 @@ organizerRouter
     // ;
 organizerRouter
   .route('/events/:id')
-    .get(getOneEvent)
-    .delete(deleteOneEvent)
-    .patch(updateOneEvent);
+    .get(getOneEventById)
+    .delete(deleteOneEventById)
+    .patch(updateOneEventById);
 
 export default organizerRouter;

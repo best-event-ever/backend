@@ -18,7 +18,7 @@ export const getAllEvents = async (req, res) => {
   }
 };
 
-export const getOneEvent = async (req, res) => {
+export const getOneEventById = async (req, res) => {
   try {
     const oneEvent = await Event.findById(req.params.id).select('-__v');
     res.status(200).json(oneEvent);
@@ -27,7 +27,7 @@ export const getOneEvent = async (req, res) => {
   }
 };
 
-export const deleteOneEvent = async (req, res) => {
+export const deleteOneEventById = async (req, res) => {
   try {
     const deleteOneEvent = await Event.deleteOne(req.body);
     res.status(200).json(deleteOneEvent);
@@ -36,7 +36,7 @@ export const deleteOneEvent = async (req, res) => {
   }
 };
 
-export const updateOneEvent = async (req, res) => {
+export const updateOneEventById = async (req, res) => {
   try {
     const id = req.params.id;
     const updateOneEvent = await Event.findByIdAndUpdate(id, req.body, {new: true}).select('-__v');
