@@ -1,15 +1,15 @@
 import express from "express";
 
-const router = express.Router();
+const userRouter = express.Router();
 
 import {getAllEvents, getOneEvent} from '../../controller/user/userController.js';
 
-router
+userRouter
   .route('/events')
     .get(getAllEvents);
     
-router
+userRouter
   .route('/events/:id')
     .get(getOneEvent);
 
-export default router;
+export default userRouter;
