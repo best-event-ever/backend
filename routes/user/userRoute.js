@@ -3,7 +3,7 @@ const userRouter = express.Router();
 
 import {getAllEvents, getOneEvent} from '../../controller/user/userController.js';
 
-import {auth} from '../../middleware/auth.js';
+import auth from '../../middleware/auth.js';
 
 userRouter
   .route('/events')
