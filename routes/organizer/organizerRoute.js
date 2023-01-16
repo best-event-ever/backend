@@ -1,9 +1,12 @@
 import express from "express";
 
 const organizerRouter = express.Router();
-//import { organizerValidator } from "../../middleware/organizerValidator.js";
+import {
+  organizerValidator,
+  organizerUpdateValidator,
+} from "../../middleware/organizerValidator.js";
 import auth from "../../middleware/auth.js";
-//import admin from "../../middleware/admin.js";
+import admin from "../../middleware/admin.js";
 import {
   addOrganizer,
   getOrganizer,
@@ -15,9 +18,9 @@ import {
 } from "../../controller/organizer/organizerController.js";
 
 organizerRouter
-  .route("/events")
+  .route("/")
   .post(postOneEvent, addOrganizer)
-  .get(auth, getOrganizer, getAllEvents);
+  .get(getOrganizer, getAllEvents);
 
 // .
 // ;

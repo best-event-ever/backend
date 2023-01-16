@@ -1,5 +1,5 @@
-//import User from "../models/userModel.js";
-import Veranstalter from "../models/organizerModel.js";
+import User from "../models/userModel.js";
+import Organizer from "../models/organizerModel.js";
 
 const userAdm = async (req, res, next) => {
   try {
@@ -15,9 +15,9 @@ const userAdm = async (req, res, next) => {
   }
 };
 
-const veranstalterAdm = async (req, res, next) => {
+const organizerAdm = async (req, res, next) => {
   try {
-    const user = await Veranstalter.findById(req.token.userId);
+    const user = await Organizer.findById(req.token.userId);
     if (!user.isAdmin) {
       const error = new Error("No User");
       error.statusCode = 401;
@@ -29,4 +29,4 @@ const veranstalterAdm = async (req, res, next) => {
   }
 };
 
-export default { userAdm, veranstalterAdm };
+export default { userAdm, organizerAdm };
