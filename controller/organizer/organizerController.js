@@ -22,6 +22,7 @@ export const addOrganizer = async (req, res, next) => {
         "Es gibt einen Veranstalter:innen mit der e-Mail Adresse"
       );
       error.statusCode = 400;
+      throw error;
     }
 
     const hashedPassword = await bcrypt.hash(newOrganizer.password, 10);
@@ -29,7 +30,7 @@ export const addOrganizer = async (req, res, next) => {
       ...newOrganizer,
       password: hashedPassword,
     });
-    res.status.send(createdOrganizer);
+    res.status.json(createdOrganizer);
   } catch (error) {
     next(error);
   }
@@ -38,7 +39,7 @@ export const addOrganizer = async (req, res, next) => {
 export const postOneEvent = async (req, res) => {
   try {
     const newEvent = await Event.create(req.body);
-    res.status(200).json(newEvent);
+    res.status(200).send(newEvent);
   } catch (error) {
     console.log(error);
   }

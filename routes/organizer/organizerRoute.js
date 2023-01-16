@@ -18,7 +18,7 @@ import {
 } from "../../controller/organizer/organizerController.js";
 
 organizerRouter
-  .route("/")
+  .route("/events")
   .post(postOneEvent, addOrganizer)
   .get(getOrganizer, getAllEvents);
 
