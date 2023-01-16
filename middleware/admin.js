@@ -1,5 +1,5 @@
-import User from "../models/userModel.js";
-import Veranstalter from "../models/veranstalterModel.js";
+//import User from "../models/userModel.js";
+import Veranstalter from "../models/organizerModel.js";
 
 const userAdm = async (req, res, next) => {
   try {

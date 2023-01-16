@@ -1,5 +1,39 @@
-import { request } from "express";
 import Event from "../../models/eventModel.js";
+import Organizer from "../../models/organizerModel.js";
+import bcrypt from "bcrypt";
+
+export const getOrganizer = async (req, res, next) => {
+  try {
+    const organizers = await Organizer.find();
+    res.send(organizers);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const addOrganizer = async (req, res, next) => {
+  try {
+    const newOrganizer = req.body;
+    const existedOrganizer = await Organizer.findOne({
+      email: newOrganizer.email,
+    });
+    if (existedOrganizer) {
+      const error = new Error(
+        "Es gibt einen Veranstalter:innen mit der e-Mail Adresse"
+      );
+      error.statusCode = 400;
+    }
+
+    const hashedPassword = await bcrypt.hash(newOrganizer.password, 10);
+    const createdOrganizer = await Organizer.create({
+      ...newOrganizer,
+      password: hashedPassword,
+    });
+    res.status.send(createdOrganizer);
+  } catch (error) {
+    next(error);
+  }
+};
 
 export const postOneEvent = async (req, res) => {
   try {
