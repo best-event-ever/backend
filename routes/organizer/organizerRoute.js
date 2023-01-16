@@ -17,13 +17,10 @@ import {
   updateOneEventById,
 } from "../../controller/organizer/organizerController.js";
 
-organizerRouter
-  .route("/events")
-  .post(postOneEvent, addOrganizer)
-  .get(getOrganizer, getAllEvents);
+organizerRouter.route("/events").post(postOneEvent).get(getAllEvents);
 
-// .
-// ;
+organizerRouter.route("/").post(addOrganizer).get(getOrganizer);
+
 organizerRouter
   .route("/events/:id")
   .get(getOneEventById)
