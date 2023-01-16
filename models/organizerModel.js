@@ -1,10 +1,10 @@
-import { Schema, model } from "mongoose";
+import mongoose from "mongoose";
 
-const organizerSchema = new Schema({
+const organizerSchema = new mongoose.Schema({
   veranstalter: { type: String, required: true },
-  anprechPerson: { type: String, required: true },
+  ansprechperson: { type: String, required: true },
   telefonnummer: { type: Number, required: true },
-  email: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   passwordWiderholen: { type: String, required: true },
   adresse: { type: String, required: true },
@@ -13,5 +13,5 @@ const organizerSchema = new Schema({
   isAdmin: Boolean,
 });
 
-const organizerModel = model("Organizer", organizerSchema);
+const organizerModel = mongoose.model("Organizer", organizerSchema);
 export default organizerModel;

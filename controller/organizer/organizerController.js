@@ -11,9 +11,10 @@ export const getOrganizer = async (req, res, next) => {
   }
 };
 
-export const addOrganizer = async (req, res, next) => {
+export const addOrganizer = async (req, res) => {
   try {
     const newOrganizer = req.body;
+    console.log('new Organizer',newOrganizer);
     const existedOrganizer = await Organizer.findOne({
       email: newOrganizer.email,
     });
@@ -29,9 +30,10 @@ export const addOrganizer = async (req, res, next) => {
       ...newOrganizer,
       password: hashedPassword,
     });
-    res.status.send(createdOrganizer);
+    res.status(200).send(createdOrganizer);
   } catch (error) {
-    next(error);
+    console.log(error);
+    res.status(400).send(error);
   }
 };
 

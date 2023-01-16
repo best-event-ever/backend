@@ -2,8 +2,7 @@ import {Schema, model} from "mongoose";
 
 const eventSchema = new Schema ({
   title: {
-    type: String,
-    required: true
+    type: String
   }
 });
 
