@@ -1,13 +1,14 @@
 import Event from "../../models/eventModel.js";
 import Organizer from "../../models/organizerModel.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
-export const getOrganizer = async (req, res, next) => {
+export const getOrganizer = async (req, res) => {
   try {
     const organizers = await Organizer.find();
     res.send(organizers);
   } catch (error) {
-    next(error);
+    res.status(400).send(error);
   }
 };
 
@@ -42,7 +43,7 @@ export const postOneEvent = async (req, res) => {
     const newEvent = await Event.create(req.body);
     res.status(200).json(newEvent);
   } catch (error) {
-    console.log(error);
+    res.status(400).send(error);
   }
 };
 
@@ -60,7 +61,7 @@ export const getOneEventById = async (req, res) => {
     const oneEvent = await Event.findById(req.params.id).select("-__v");
     res.status(200).json(oneEvent);
   } catch (error) {
-    console.log(error);
+    res.status(400).send(error);
   }
 };
 
@@ -84,3 +85,12 @@ export const updateOneEventById = async (req, res) => {
     console.log(error);
   }
 };
+
+/* export const login = async (req, res) => {
+  try {
+    const organizerData = req.body;
+    const JWT_
+  }
+
+}
+ */

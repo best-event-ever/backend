@@ -7,6 +7,7 @@ import morgan from "morgan";
 import mongoose from "mongoose";
 import organizerRouter from "./routes/organizer/organizerRoute.js";
 import userRouter from "./routes/user/userRoute.js";
+import tokenRouter from "./routes/token/tonkenRoute.js";
 
 const URI = process.env.MONGO || "mongodb://localhost:27017/event";
 const app = express();
@@ -25,7 +26,7 @@ app.use(morgan("dev"));
 
 app.use("/organizer", organizerRouter);
 app.use("/user", userRouter);
-
+app.use("/token", tokenRouter);
 app.listen(PORT, () => {
   console.log(`Server runs on Port: ${PORT}`);
 });

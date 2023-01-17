@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const organizerSchema = new mongoose.Schema({
   veranstalter: { type: String, required: true },
-  ansprechperson: { type: String, required: true },
+  ansprechperson: { type: String },
   telefonnummer: { type: Number, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
