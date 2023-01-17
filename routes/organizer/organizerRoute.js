@@ -19,7 +19,11 @@ import {
 
 organizerRouter.route("/events").post(postOneEvent).get(getAllEvents);
 
-organizerRouter.route("/").post(addOrganizer).get(getOrganizer);
+organizerRouter.route("/registration").post(addOrganizer).get(getOrganizer);
+
+organizerRouter.route("/login").post(addOrganizer).get(getOrganizer);
+
+organizerRouter.route("/").get(getOrganizer);
 
 organizerRouter
   .route("/events/:id")
