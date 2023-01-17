@@ -92,12 +92,12 @@ export const login = async (req, res) => {
     const JWT_KEY = process.env.JWT || "Standartwert";
     const organizerDB = await Organizer.findOne({
       email: organizerData.email,
-      password: organizerData.password,
     });
     if (!organizerDB) {
       {
-        const error = new Error(`Error ${organizerData.email}`);
-        error.statusCode = 401;
+        res.status(401).json({
+          errors: ["Falsches Email Adresse"],
+        });
       }
     }
 
@@ -106,8 +106,9 @@ export const login = async (req, res) => {
       organizerDB.password
     );
     if (!checkPassword) {
-      const error = new Error(`Falsches Password`);
-      error.statusCode = 401;
+      res.status(401).json({
+        errors: ["Falsches Password adresse"],
+      });
     }
     const token = jwt.sign(
       {

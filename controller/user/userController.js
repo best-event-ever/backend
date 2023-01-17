@@ -59,7 +59,6 @@ export const login = async (req, res) => {
     const JWT_KEY = process.env.JWT || "Standartwert";
     const userDB = await User.findOne({
       email: userData.email,
-      password: userData.password,
     });
     console.log(userDB);
     if (!userDB) {
