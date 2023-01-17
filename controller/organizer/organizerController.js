@@ -86,11 +86,42 @@ export const updateOneEventById = async (req, res) => {
   }
 };
 
-/* export const login = async (req, res) => {
+export const login = async (req, res) => {
   try {
     const organizerData = req.body;
-    const JWT_
-  }
+    const JWT_KEY = process.env.JWT || "Standartwert";
+    const organizerDB = await Organizer.findOne({
+      email: organizerData.email,
+      password: organizerData.password,
+    });
+    if (!organizerDB) {
+      {
+        const error = new Error(`Error ${userData.email}`);
+        error.statusCode = 401;
+      }
+    }
 
-}
- */
+    const checkPassword = await bcrypt.compare(
+      organizerData.password,
+      organizerDB.password
+    );
+    if (!checkPassword) {
+      const error = new Error(`Falsches Password`);
+      error.statusCode = 401;
+    }
+    const token = jwt.sign(
+      {
+        email: organizerDB.email,
+        userId: organizerDB._id,
+      },
+      JWT_KEY,
+      { expiresIn: "1h" }
+    );
+    res.send({
+      message: "Login successful",
+      token,
+    });
+  } catch (error) {
+    res.status(400).send(error);
+  }
+};

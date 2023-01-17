@@ -8,6 +8,7 @@ import {
 import auth from "../../middleware/auth.js";
 import admin from "../../middleware/admin.js";
 import {
+  login,
   addOrganizer,
   getOrganizer,
   postOneEvent,
@@ -21,7 +22,7 @@ organizerRouter.route("/events").post(postOneEvent).get(getAllEvents);
 
 organizerRouter.route("/registration").post(addOrganizer).get(getOrganizer);
 
-organizerRouter.route("/login").post(addOrganizer).get(getOrganizer);
+organizerRouter.route("/login").post(login).get;
 
 organizerRouter.route("/").get(getOrganizer);
 
