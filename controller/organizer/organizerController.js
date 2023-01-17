@@ -96,7 +96,7 @@ export const login = async (req, res) => {
     });
     if (!organizerDB) {
       {
-        const error = new Error(`Error ${userData.email}`);
+        const error = new Error(`Error ${organizerData.email}`);
         error.statusCode = 401;
       }
     }
