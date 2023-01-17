@@ -10,7 +10,7 @@ import userRouter from "./routes/user/userRoute.js";
 
 const URI = process.env.MONGO || "mongodb://localhost:27017/event";
 const app = express();
-const PORT = 4009;
+const PORT = 4010;
 
 mongoose
   .connect(URI)

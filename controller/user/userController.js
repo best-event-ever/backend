@@ -61,10 +61,11 @@ export const login = async (req, res) => {
       email: userData.email,
       password: userData.password,
     });
+    console.log(userDB);
     if (!userDB) {
       {
         res.status(401).json({
-          errors: ["Falsches"],
+          errors: ["Falsches Email Adresse"],
         });
       }
     }
@@ -75,7 +76,7 @@ export const login = async (req, res) => {
     );
     if (!checkPassword) {
       res.status(401).json({
-        errors: ["Falsches Email adresse"],
+        errors: ["Falsches Password adresse"],
       });
     }
     const token = jwt.sign(
