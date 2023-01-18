@@ -120,7 +120,7 @@ export const login = async (req, res) => {
       { expiresIn: "1h" }
     );
     res.send({
-      message: "Login successful",
+      message: "Willkommen auf der Website Best Event Ever.",
       token,
     });
   } catch (error) {

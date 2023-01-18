@@ -11,7 +11,7 @@ import generalRouter from "./routes/general/generalRoute.js";
 
 const URI = process.env.MONGO || "mongodb://localhost:27017/event";
 const app = express();
-const PORT = 4011;
+const PORT = 4013;
 
 mongoose
   .connect(URI)
@@ -26,7 +26,7 @@ app.use(morgan("dev"));
 
 app.use("/organizer", organizerRouter);
 app.use("/user", userRouter);
-app.use("/events", generalRouter)
+app.use("/events", generalRouter);
 
 app.listen(PORT, () => {
   console.log(`Server runs on Port: ${PORT}`);

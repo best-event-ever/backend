@@ -13,6 +13,9 @@ const eventSchema = new Schema({
   eventDate: {
     type: String,
   },
+  eventTime: {
+    type: String,
+  },
   eventPrice: {
     type: String,
   },
