@@ -19,6 +19,9 @@ const eventSchema = new Schema({
   eventPrice: {
     type: String,
   },
+  img: {
+    type: String,
+  }
 });
 
 const eventModel = model("Event", eventSchema);
