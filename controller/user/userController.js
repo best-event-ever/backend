@@ -34,10 +34,7 @@ export const addUser = async (req, res) => {
 export const getAllEvents = async (req, res, next) => {
   try {
     const allEvents = await Event.find().select("-__v");
-    if (allEvents === userEvent) {
-      res.status(200).json(userEvent);
-    }
-    res.status(200).send(userEvent);
+    res.status(200).send(allEvents);
   } catch (error) {
     console.log(error);
   }
