@@ -20,7 +20,6 @@ export const organizerValidator = [
     .notEmpty()
     .withMessage("Passwort muss angegeben werden.")
     .trim()
-    // .isStrongPassword() // auskommentiert zum einfacheren Testen
     .withMessage(
       "Passwort ist nicht sicher. Es soll mindestens acht Zeichen enthalten, davon mindestens eine Kleinbuchstabe, mindestens eine Großbuchstabe, mindestens eine Nummer und mindestens ein Sonderzeichen."
     ),
@@ -29,7 +28,6 @@ export const organizerValidator = [
     .notEmpty()
     .withMessage("Passwort muss wiederholen.")
     .trim(),
-  // .isStrongPassword() // auskommentiert zum einfacheren Testen
 ];
 
 export const organizerUpdateValidator = [

@@ -10,7 +10,7 @@ import admin from "../../middleware/admin.js";
 import {
   login,
   addOrganizer,
-  getOrganizer,
+  //getOrganizer,
   postOneEvent,
   getAllEvents,
   getOneEventById,
@@ -20,11 +20,11 @@ import {
 
 organizerRouter.route("/events").post(postOneEvent).get(getAllEvents);
 
-organizerRouter.route("/registration").post(addOrganizer).get(getOrganizer);
+organizerRouter.route("/registration").post(addOrganizer);
 
 organizerRouter.route("/login").post(login).get;
 
-organizerRouter.route("/").get(getOrganizer);
+//organizerRouter.route("/").get(getOrganizer);
 
 organizerRouter
   .route("/events/:id")

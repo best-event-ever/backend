@@ -3,14 +3,15 @@ import Organizer from "../../models/organizerModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-export const getOrganizer = async (req, res) => {
+/* export const getOrganizer = async (req, res) => {
   try {
-    const organizers = await Organizer.find();
-    res.send(organizers);
+    const organizer = await Organizer.findOne(
+    { email: organizer.email });
+    res.send(organizer);
   } catch (error) {
     res.status(400).send(error);
   }
-};
+}; */
 
 export const addOrganizer = async (req, res) => {
   try {

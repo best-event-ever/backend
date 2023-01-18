@@ -63,7 +63,7 @@ export const login = async (req, res) => {
     console.log(userDB);
     if (!userDB) {
       {
-        res.status(401).json({
+        return res.status(401).json({
           errors: ["Falsches Email Adresse"],
         });
       }
@@ -74,7 +74,7 @@ export const login = async (req, res) => {
       userDB.password
     );
     if (!checkPassword) {
-      res.status(401).json({
+      return res.status(401).json({
         errors: ["Falsches Password adresse"],
       });
     }
@@ -87,7 +87,7 @@ export const login = async (req, res) => {
       { expiresIn: "1h" }
     );
     res.send({
-      message: "Login successful",
+      message: "Willkommen auf der Website Best Event Ever.",
       token,
     });
   } catch (error) {
