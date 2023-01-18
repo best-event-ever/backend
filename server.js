@@ -11,7 +11,7 @@ import generalRouter from "./routes/general/generalRoute.js";
 
 const URI = process.env.MONGO || "mongodb://localhost:27017/event";
 const app = express();
-const PORT = 4017;
+const PORT = 4011;
 
 mongoose
   .connect(URI)
